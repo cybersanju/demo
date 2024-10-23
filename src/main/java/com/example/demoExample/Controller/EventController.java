@@ -22,7 +22,7 @@ public class EventController {
     private static final Logger log = LoggerFactory.getLogger(EventController.class);
 
     @GetMapping("events/{userId}")
-    public ResponseEntity<?> getEvents(@PathVariable int userId){
+    public ResponseEntity<?> getEvents(@PathVariable int userId) throws Exception {
         List<Event> event=eventService.getUserEvents(userId);
         return new ResponseEntity<>(event,HttpStatus.FOUND);
     }
